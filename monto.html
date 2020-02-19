@@ -201,6 +201,7 @@
               </li>
             </ul>
           </li>
+
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
@@ -218,6 +219,7 @@
               </li>
             </ul>
           </li>
+          
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -253,7 +255,7 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Calcular Interés Simple</h3>
+                <h3 class="card-title">Calcular Monto</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -272,10 +274,11 @@
                     <input type="text" class="form-control" id="tasa" placeholder="Ingrese el porcentaje de tasa anual de interés">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Interés:</label>
-                    <input type="text" class="form-control" id="interes" placeholder="Ingrese el interés a pagar">
+                    <label for="exampleInputPassword1">Monto:</label>
+                    <input type="text" class="form-control" id="monto" placeholder="Ingrese el monto">
                   </div>
                 </div>
+              </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
@@ -337,13 +340,13 @@ $(document).ready(function () {
   function calculo(e){
     e.preventDefault()
     let valor_capital = parseFloat(capital.value)
-    let valor_interes = parseFloat(interes.value)
+    let valor_monto = parseFloat(monto.value)
     let valor_tiempo = parseFloat(tiempo.value)
     let valor_tasa = parseFloat(tasa.value)/100
 
     let vacios =[]
     if(isNaN(valor_capital)) vacios.push("valor_capital")
-    if(isNaN(valor_interes)) vacios.push("valor_interes")
+    if(isNaN(valor_monto)) vacios.push("valor_monto")
     if(isNaN(valor_tiempo)) vacios.push("valor_tiempo")
     if(isNaN(valor_tasa)) vacios.push("valor_tasa")
     
@@ -352,16 +355,16 @@ $(document).ready(function () {
     }else{
       switch(vacios[0]){
         case "valor_capital":
-        alert("El capital es: " + (valor_interes/(valor_tasa*valor_tiempo)));
+        alert("El capital es: " + (valor_monto)/(1+(valor_tiempo*valor_tasa)));
           break;
-          case "valor_interes":
-          alert("El interés es: " + (valor_capital*valor_tasa*valor_tiempo));
+          case "valor_monto":
+          alert("El monto es: " + (valor_capital*(1+(valor_tiempo*valor_tasa))));
           break;
           case "valor_tiempo":
-          alert("El tiempo en años es: " + (valor_interes/(valor_tasa*valor_capital)));
+          alert("El tiempo en años es: " + (((valor_monto/valor_capital)-1)/valor_tasa));
           break;
           case "valor_tasa":
-          alert("La tasa de interés anual es: " + (valor_interes/(valor_capital*valor_tiempo))*100);
+          alert("La tasa de interés anual es: " + ((((valor_monto/valor_capital)-1)/valor_tiempo))*100);
           break;
       }
     }
