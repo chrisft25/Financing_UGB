@@ -91,7 +91,8 @@ function login(){
   let password= ["1234", "12345"]
 
 if(usuarios.includes(document.getElementById('username').value) && password.includes(document.getElementById('password').value)){
-window.location.href="index.html"
+  sessionStorage.setItem("login", true);
+  window.location.href="index.html"
 }else{
   alert('Usuario y/o contraseña incorrectas')
 }
