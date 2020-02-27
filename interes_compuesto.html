@@ -329,8 +329,8 @@
                   </div>
                   <!-- /.d-flex -->
   
-                  <div class="position-relative mb-4">
-                    <canvas id="sales-chart" height="200"></canvas>
+                  <div class="position-relative mb-4" id="grafica">
+                    
                   </div>
   
                   <div class="d-flex flex-row justify-content-end">
@@ -386,6 +386,8 @@
   calcular.addEventListener("click",calculo,false)
 
   function calculo(e){
+    const grafica = document.getElementById("grafica")
+    grafica.innerHTML= `<canvas id="sales-chart" height="200"></canvas>`
     e.preventDefault()
     let valor_capital = parseFloat(capital.value)
     let valor_interes = parseFloat(monto.value)
