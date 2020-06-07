@@ -289,12 +289,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Interés Compuesto</h1>
+              <h1>Anualidades</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                <li class="breadcrumb-item active">Interés Compuesto</li>
+                <li class="breadcrumb-item active">Anualidades</li>
               </ol>
             </div>
           </div>
@@ -306,89 +306,118 @@
         <div class="container-fluid">
           <div class="row">
             <!-- left column -->
-            <div class="col-md-6">
-              <!-- general form elements -->
-              <div class="card card-primary">
-                <div class="card-header">
-                  <h3 class="card-title">Calcular Interés Compuesto</h3>
-                </div>
-                <!-- /.card-header -->
-                <!-- form start -->
-                <form role="form">
-                  <div class="card-body">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Capital Inicial:</label>
-                      <input type="text" class="form-control" id="capital" placeholder="Ingrese el capital inicial">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Períodos:</label>
-                      <input type="text" class="form-control" id="tiempo" placeholder="Ingrese el tiempo en años">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Tasa de interés:</label>
-                      <input type="text" class="form-control" id="tasa"
-                        placeholder="Ingrese el porcentaje de tasa anual de interés">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Monto total:</label>
-                      <input type="text" class="form-control" id="monto" placeholder="Ingrese el monto total">
+            <div class="calculator">
+              <script src="https://www.calkoo.com/js/annuityCalc.js"></script>
+              <script>document.write('');</script>
+              <noscript>
+                <p class="error"><img src="./images/alert.gif">&nbsp;<b>ERROR!</b> JavaScript debe estar habilitado!</p>
+                <br>
+              </noscript>
+              <div class="calc-container">
+                <form>
+                  <div class="row">
+                    <div class="col-sm-12 col-12 no-padding">
+                      <h2 class="toc1 toc-input">Datos iniciales</h2>
                     </div>
                   </div>
-                  <!-- /.card-body -->
-
-                  <div class="card-footer">
-                    <button class="btn btn-primary" id="calcular">Calcular</button>
+                  <div><br></div>
+                  <div class="row">
+                    <div class="col-sm-4 col-6 no-padding">
+                      <input class="css-radio" type="radio" id="pva" name="ctype" value="1" checked="checked"
+                        onclick="annuityCalc();"><label class="css-label" for="pva">Valor actual <i>(PV)</i></label><br>
+                      <input class="css-radio" type="radio" id="fva" name="ctype" value="2"
+                        onclick="annuityCalc();"><label class="css-label" for="fva">Valor futuro <i>(FV)</i></label>
+                    </div>
+                    <div class="col-sm-6 col-6 no-padding"><input class="vis biginput R W120" type="text" id="input"
+                        name="input" value="10000" maxlength="10" onclick="this.value = '';annuityCalc();"
+                        onkeyup="annuityCalc()"></div>
+                  </div>
+                  <div>
+                    <hr>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-4 col-12 no-padding">Tipo de pago</div>
+                    <div class="col-sm-6 col-12 no-padding">
+                      <input class="css-radio" type="radio" id="p0" name="ptype" checked=""
+                        onclick="annuityCalc()"><label class="css-label" for="p0">Inicio del período (anualidad
+                        anticipada)</label><br>
+                      <input class="css-radio" type="radio" id="p1" name="ptype" onclick="annuityCalc()"><label
+                        class="css-label" for="p1">Final del período (anualidad ordinaria)</label>
+                    </div>
+                  </div>
+                  <div>
+                    <hr>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-4 col-6 no-padding">Tipo de interés anual <i>(r)</i></div>
+                    <div class="col-sm-6 col-6 no-padding"><input class="vis biginput R W60" type="text" id="r" name="r"
+                        value="6.00" maxlength="5" onclick="this.value = '';annuityCalc();" onkeyup="annuityCalc()"> %
+                    </div>
+                  </div>
+                  <div>
+                    <hr>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-4 col-6 no-padding">Número de períodos <i>(t)</i></div>
+                    <div class="col-sm-6 col-6 no-padding"><input class="vis biginput R W60" type="text" id="period"
+                        name="period" value="5" maxlength="3" onclick="this.value = '';annuityCalc();"
+                        onkeyup="annuityCalc()"><br>
+                      <input class="css-radio" type="radio" id="t1" name="PERtype" checked="checked"
+                        onclick="annuityCalc()"><label class="css-label" for="t1">Año(s) <i>(n=1)</i></label><br>
+                      <input class="css-radio" type="radio" id="t2" name="PERtype" onclick="annuityCalc()"><label
+                        class="css-label" for="t2">Trimestre <i>(n=4)</i></label><br>
+                      <input class="css-radio" type="radio" id="t3" name="PERtype" onclick="annuityCalc()"><label
+                        class="css-label" for="t3">Meses <i>(n=12)</i></label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12 col-12 no-padding">
+                      <h2 class="toc1 toc-result">Resultados</h2>
+                    </div>
+                  </div>
+                  <div><br></div>
+                  <div class="row">
+                    <div class="col-sm-4 col-6 no-padding">Pago periódico <i>(C)</i></div>
+                    <div class="col-sm-6 col-6 no-padding">&nbsp;<input class="hid biginput L W120" id="pmt" name="pmt"
+                        readonly="readonly" value="2239.59"></div>
+                  </div>
+                  <div>
+                    <hr>
+                  </div>
+                  <div class="row no-padding">
+                    <div class="col-sm-6 col-12 no-padding">
+                      <div class="row no-padding">
+                      </div>
+                    </div>
+                    <div class="d-sm-none">&nbsp;</div>
+                    <div class="col-sm-6 col-12 no-padding R-sm-L"><input class="btn btn-sm btn-outline-danger"
+                        type="button" name="reset" onclick="resetValues(this.form)" value="Restablecer">&ensp;</div>
                   </div>
                 </form>
+              </div>
+              <div>
+                <div>
+                  <hr>
+                </div>
+                <div>
+                  <hr>
+                </div>
 
               </div>
-              <!-- /.card -->
-
-
-              <!-- /.card-body -->
-            </div>
-            <div class="col-lg-6">
-              <div class="card">
-                <div class="card-header border-0">
-                  <div class="d-flex justify-content-between">
-                    <h3 class="card-title">Gráfica</h3>
-                    <!-- <a href="javascript:void(0);">Ver Reporte</a> -->
-                  </div>
-                </div>
-                <div class="card-body">
-                  <div class="d-flex">
-                    <p class="d-flex flex-column">
-                      <span>Montos</span>
-                    </p>
-                    <p class="ml-auto d-flex flex-column text-right">
-                      <span class="text-muted">Períodos</span>
-                    </p>
-                  </div>
-                  <!-- /.d-flex -->
-
-                  <div class="position-relative mb-4" id="grafica">
-
-                  </div>
-
-                  <div class="d-flex flex-row justify-content-end">
-                    <span class="mr-2">
-                      <i class="fas fa-square text-primary"></i> Periodos
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <!-- /.card -->
             </div>
             <!-- /.card -->
+
+
+            <!-- /.card-body -->
           </div>
-          <!--/.col (right) -->
-
+          <!-- /.card -->
         </div>
-        <!-- /.row -->
-
-    </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+        <!--/.col (right) -->
+    </div>
+    <!-- /.row -->
+  </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -417,24 +446,27 @@
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
-  <script src="plugins/chart.js/Chart.min.js"></script>
   <script src="dist/js/demo.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      bsCustomFileInput.init();
+    });
+  </script>
+
   <script>
 
     calcular.addEventListener("click", calculo, false)
 
     function calculo(e) {
-      const grafica = document.getElementById("grafica")
-      grafica.innerHTML = `<canvas id="sales-chart" height="200"></canvas>`
       e.preventDefault()
       let valor_capital = parseFloat(capital.value)
-      let valor_interes = parseFloat(monto.value)
+      let valor_monto = parseFloat(monto.value)
       let valor_tiempo = parseFloat(tiempo.value)
       let valor_tasa = parseFloat(tasa.value) / 100
 
       let vacios = []
       if (isNaN(valor_capital)) vacios.push("valor_capital")
-      if (isNaN(valor_interes)) vacios.push("valor_interes")
+      if (isNaN(valor_monto)) vacios.push("valor_monto")
       if (isNaN(valor_tiempo)) vacios.push("valor_tiempo")
       if (isNaN(valor_tasa)) vacios.push("valor_tasa")
 
@@ -443,106 +475,23 @@
       } else {
         switch (vacios[0]) {
           case "valor_capital":
-            alert("El capital es: " + (valor_interes / (valor_tasa * valor_tiempo)));
+            alert("El capital es: " + (valor_monto) / (1 + (valor_tiempo * valor_tasa)));
             break;
-          case "valor_interes":
-            var capital_values = []
-            var labels_capital = []
-            capital_values.push(valor_capital)
-            labels_capital.push("Capital Inicial")
-            for (let i = 0; i < valor_tiempo; i++) {
-              let valor = valor_capital + (valor_capital * valor_tasa)
-              capital_values.push(valor)
-              valor_capital = valor
-              labels_capital.push("Periodo " + (i + 1))
-            }
-            console.log(capital_values, labels_capital)
-            renderChart(labels_capital, capital_values)
-            alert("El monto es: " + valor_capital);
+          case "valor_monto":
+            alert("El monto es: " + (valor_capital * (1 + (valor_tiempo * valor_tasa))));
             break;
           case "valor_tiempo":
-            alert("El tiempo en años es: " + (valor_interes / (valor_tasa * valor_capital)));
+            alert("El tiempo en años es: " + (((valor_monto / valor_capital) - 1) / valor_tasa));
             break;
           case "valor_tasa":
-            alert("La tasa de interés anual es: " + (valor_interes / (valor_capital * valor_tiempo)) * 100);
+            alert("La tasa de interés anual es: " + ((((valor_monto / valor_capital) - 1) / valor_tiempo)) * 100);
             break;
         }
       }
 
       console.log({ valor_interes, valor_tasa, valor_tiempo, valor_tasa, valor_capital })
     }
-    function renderChart(labels, data) {
-      var mode = 'index'
-      var intersect = true
-      var ticksStyle = {
-        fontColor: '#495057',
-        fontStyle: 'bold'
-      }
 
-      var $salesChart = $('#sales-chart')
-      var salesChart = new Chart($salesChart, {
-        type: 'bar',
-        data: {
-          labels,
-          datasets: [
-            {
-              backgroundColor: '#007bff',
-              borderColor: '#007bff',
-              data
-            }
-          ]
-        },
-        options: {
-          maintainAspectRatio: false,
-          tooltips: {
-            mode: mode,
-            intersect: intersect
-          },
-          hover: {
-            mode: mode,
-            intersect: intersect
-          },
-          legend: {
-            display: false
-          },
-          scales: {
-            yAxes: [{
-              // display: false,
-              gridLines: {
-                display: true,
-                lineWidth: '4px',
-                color: 'rgba(0, 0, 0, .2)',
-                zeroLineColor: 'transparent'
-              },
-              ticks: $.extend({
-                beginAtZero: true,
-
-                // Include a dollar sign in the ticks
-                callback: function (value, index, values) {
-                  if (value >= 1000) {
-                    value /= 1000
-                    value += 'k'
-                  }
-                  return '$' + value
-                }
-              }, ticksStyle)
-            }],
-            xAxes: [{
-              display: true,
-              gridLines: {
-                display: false
-              },
-              ticks: ticksStyle
-            }]
-          }
-        }
-      })
-    }
-  </script>
-  <script type="text/javascript">
-    $(document).ready(function () {
-      bsCustomFileInput.init();
-    });
   </script>
 </body>
 
