@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,85 +19,87 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+
 <body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="index.html"><b>Hospital</b> La Paz</a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">Inicia sesión para entrar al sistema</p>
-
-      <form action="index3.html" method="post">
-        <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Usuario" id="username">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Contraseña" id="password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Recuérdame
-              </label>
-            </div>
-          </div>
-          <!-- /.col -->
-          <br>
-          <div class="row">
-            <button type="button" class="btn btn-primary btn-block" id="login">Iniciar Sesión</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
-
-      
-      <!-- /.social-auth-links -->
-
-      <p class="mb-1">
-        <a href="forgot-password.html">Olvidé mi contraseña</a>
-      </p>
-      
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="index.html"><b>Hospital</b> La Paz</a>
     </div>
-    <!-- /.login-card-body -->
+    <!-- /.login-logo -->
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">Inicia sesión para entrar al sistema</p>
+
+        <form action="index3.html" method="post">
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Usuario" id="username">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Contraseña" id="password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8">
+              <div class="icheck-primary">
+                <input type="checkbox" id="remember">
+                <label for="remember">
+                  Recuérdame
+                </label>
+              </div>
+            </div>
+            <!-- /.col -->
+            <br>
+            <div class="row">
+              <button type="button" class="btn btn-primary btn-block" id="login">Iniciar Sesión</button>
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
+
+
+        <!-- /.social-auth-links -->
+
+        <p class="mb-1">
+          <a href="forgot-password.html">Olvidé mi contraseña</a>
+        </p>
+
+      </div>
+      <!-- /.login-card-body -->
+    </div>
   </div>
-</div>
-<!-- /.login-box -->
+  <!-- /.login-box -->
 
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
-<script>
+  <!-- jQuery -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/adminlte.min.js"></script>
+  <script>
 
-document.getElementById('login').addEventListener("click",login,false)
+    document.getElementById('login').addEventListener("click", login, false)
 
-function login(){
-  let usuarios = ["chrisft","monge1h"]
-  let password= ["1234", "12345"]
+    function login() {
+      let usuarios = ["chrisft", "monge1h", "berta.reyes"]
+      let password = ["1234", "12345", "berta"]
 
-if(usuarios.includes(document.getElementById('username').value) && password.includes(document.getElementById('password').value)){
-  sessionStorage.setItem("login", true);
-  window.location.href="index.html"
-}else{
-  alert('Usuario y/o contraseña incorrectas')
-}
-}
-</script>
+      if (usuarios.includes(document.getElementById('username').value) && password.includes(document.getElementById('password').value)) {
+        sessionStorage.setItem("login", true);
+        window.location.href = "index.html"
+      } else {
+        alert('Usuario y/o contraseña incorrectas')
+      }
+    }
+  </script>
 </body>
+
 </html>
